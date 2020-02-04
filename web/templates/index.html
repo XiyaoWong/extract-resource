@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>提取</title>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+
+<body>
+    <div class="container">
+
+        {% for message in get_flashed_messages() %}
+        <h2 style='color:red'>{{message}}</h2>
+        {% endfor %}
+        <form action="{{ url_for('index') }}" method="GET">
+            <label for="text">能提取：B站视频封面，全民K歌，酷狗，酷我，唱鸭MP3，抖因无水印视频，皮皮搞笑无水印视频，微视无水印视频。（链接只能是单个视频或歌曲分享链接）</label>
+            <input type="text" name="url" placeholder="请输入链接，就是http开头的" />
+            <input class="button-primary" type="submit" value="提取" />
+        </form>
+        {% if author%}
+        <h6>{{author}}</h6>
+        {% endif%}
+
+        {% if music_name%}
+        <h6>
+            {{music_name}}
+            {% if music_url %}<a href="{{music_url}}" download="">↓</a>
+            {% endif %}
+        </h6>
+
+        {% endif%}
+
+        {% if music_url %}
+        <audio src="{{music_url}}" controls autoplay></audio>
+        {% endif %}
+
+        {% if video_name%}
+        <h6>{{video_name}}</h6>
+        {% endif%}
+
+        {% if video_url %}
+        <p>
+        <a href="{{video_url}}" class="button button-primary" download="">↓</a>
+        <video controls autoplay width='30%' src="{{video_url}}"></video>
+        </p>
+        {% endif %}
+
+        {% if image_url %}
+        <img src="{{image_url}}" width="100%">
+        {% endif %}
+    </div>
+</body>
+
+</html>
