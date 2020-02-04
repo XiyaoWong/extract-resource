@@ -24,7 +24,7 @@ def index():
     # print(url)
     if url and ('http' in url):
         data = main.get(url)
-        print(data)
+        # print(data)
         author = data.get('author')
         video_url = data.get('video_url')
         video_name = data.get('video_name')
