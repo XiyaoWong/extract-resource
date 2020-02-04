@@ -1,6 +1,6 @@
 class Config(object):
-    ENV = 'development'
-    DEBUG = True
+    ENV = 'production'
+    DEBUG = False
     SECRET_KEY = 'fjdfioefjiehrfoeffsdatrieoptoqtjrkltji ghore'
 
 
