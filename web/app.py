@@ -33,7 +33,7 @@ def index():
         image_url = data.get('image_url')
         flash('如果你输入的链接正确的话-成功提取的内容都会显示，否则失败。如果是抖音的话，就别试了，失败很正常')
     else:
-        flash('提取失败，请检查链接是否正确，多次尝试没用就别试了~')
+        flash('提取失败了的话，请检查链接是否正确，多次尝试没用就别试了~')
     return render_template('index.html',
                             author=author,
                             video_url=video_url,
